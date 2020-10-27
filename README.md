@@ -20,7 +20,26 @@ Este comando ira executar uma série de passos que você poderá acompanhar via 
 3) Configurações base do Laravel/Lumen (.env, key:generate)
 4) O ambiente pode ser acessado no http://localhost:PORT
 
-### 2) Execute os seguintes passos separadamente no seu terminal dentro da pasta do projeto:
+#### Tutorial completo
+
+```
+# Clonando esse repositório
+git clone https://github.com/bylucasxdx/docker-image-php.git
+
+# Entrando na pasta de projetos
+cd docker-image-php/projects
+
+# Clonando o projeto que deseja testar
+git clone URL_OUTRO_PROJETO.git
+
+# Voltando para a raiz do projeto
+cd ..
+
+# Rodando o comando para preparar a aplicação
+sh ./run.sh -n nome_projeto_clonado  
+```
+
+### Caso queira rodar os comando separadamente:
 
 `docker-compose up --build -d `
 
