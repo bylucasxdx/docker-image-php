@@ -1,17 +1,30 @@
+### O que eu preciso saber sobre esse projeto
+Esse projeto tem como função ajudar o desenvolvedor a testar uma aplicação nova em Laravel ou Lumen.
+
+Para começar a utilizar você deve clonar um projeto desses frameworks para a pasta `/projects`;
+
+Feito o clone da aplicação rode o comando abaixo para que a instalação e configuração prossigam;
+
 ### 1) Execute o arquivo `run.sh` da pasta raiz, podendo ser via terminal com por exemplo:
 
 `sh ./run.sh`
 
+#### Options
+- `-p` Define a porta que o container do php vai rodar na sua máquina
+- `-n` Define o nome do projeto utilizado para ser o volume do php
+- `-v` Define a versão do PHP (7.2 ou 7.4)
+
 Este comando ira executar uma série de passos que você poderá acompanhar via terminal, referente a:
 1) Build
-2) Install das dependências do framework lumen/laravel
-4) O ambiente pode ser acessado no http://localhost
+2) Instalação das dependências do framework lumen/laravel
+3) Configurações base do Laravel/Lumen (.env, key:generate)
+4) O ambiente pode ser acessado no http://localhost:PORT
 
 ### 2) Execute os seguintes passos separadamente no seu terminal dentro da pasta do projeto:
 
-`docker-compose up --build -d`
+`docker-compose up --build -d `
 
-`docker run --rm --interactive --tty -v $PWD/lumen:/app composer install`
+`docker run --rm --interactive --tty -v $PWD/projects/project_name:/app composer install`
 
 `docker exec -it php php /var/www/html/artisan migrate`
 
