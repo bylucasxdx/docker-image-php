@@ -5,8 +5,8 @@ display_usage() {
   echo "\nUsage: $0 [OPTIONS]"
   echo "\nThis script must be run with Docker capable privileges!"
   echo "\nOptions:"
-  echo "  -v <version>  PHP version (required)"
-  echo "  -n <name>  Set the project name"
+  echo "  -n <name>  Set the project name (required)"
+  echo "  -v <version>  PHP version (Default: 7.4)"
   echo "  -p <port>  Set the project PORT (Default: 80)"
 }
 
@@ -53,4 +53,4 @@ echo Changing storage permissions
 docker exec -it php chmod 777 -R /var/www/html/storage/
 
 echo Information of new containers
-docker ps -a 
+docker ps
