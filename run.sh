@@ -37,20 +37,24 @@ export PHP_VERSION=$version
 export PROJECT_NAME=$name
 export PROJECT_PORT=$port
 
+echo Deleting containers
+docker rm -f php nginx
+
 echo Uploading Application container 
 docker-compose up --build -d
 
 echo Install dependencies
-docker run --rm --interactive --tty -v $PWD/projects/$name:/app composer install
+docker exec -it php composer --version
+docker exec -it php composer install
 
 echo Copying env variables
-docker exec -it php cp /var/www/html/.env.example /var/www/html/.env
+docker exec -it php cp /var/www/app/.env.example /var/www/app/.env
 
 echo Laravel Key Generating
-docker exec -it php php /var/www/html/artisan key:generate
+docker exec -it php php /var/www/app/artisan key:generate
 
 echo Changing storage permissions
-docker exec -it php chmod 777 -R /var/www/html/storage/
+docker exec -it php chmod 777 -R /var/www/app/storage/
 
 echo Information of new containers
 docker ps

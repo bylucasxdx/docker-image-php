@@ -14,8 +14,8 @@ services:
     container_name: php
     build: images/php/${PHP_VERSION}
     volumes:
-      - ./projects/${PROJECT_NAME}:/var/www/html
-    working_dir: /var/www/html/app/public
+      - ./projects/${PROJECT_NAME}:/var/www/app
+    working_dir: /var/www/app
     command: php-fpm
     ports:
       - "9000:9000"
